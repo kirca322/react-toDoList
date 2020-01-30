@@ -4,8 +4,6 @@ import Subject from './Subject';
 
 const Title = (props) => (
     <div className='title'>
-        {/* <Subject subject={props.subject} handleAddSubjectTitle={props.handleAddSubjectTitle}/>
-        <AddToDoListEntry /> */}
         <Subject 
             title={props.title} 
             titleToggle={props.titleToggle} 

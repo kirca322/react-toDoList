@@ -8,7 +8,6 @@ const ToDoList = (props) => (
             <thead>
                 <tr>
                     <td>
-                        {/* <Title subject={props.currentToDoList.title} handleAddSubjectTitle={props.handleAddSubjectTitle}/> */}
                         <Title 
                         handleAddToDoListEntryButton={props.handleAddToDoListEntryButton} 
                         title={props.currentToDoList.title} 
