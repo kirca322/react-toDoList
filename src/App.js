@@ -3,6 +3,7 @@ import './css/App.css';
 import Option from './components/Option';
 import ToDoList from './components/ToDoList';
 
+
 /*
 state 구조
 this.state = {
@@ -46,6 +47,7 @@ class App extends React.Component {
       currentToDoList: {
         title: '',
         titleToggle: true,
+        index: 0,
         entryList: []
       }
     }
@@ -57,6 +59,8 @@ class App extends React.Component {
     this.toggleTitleFocus = this.toggleTitleFocus.bind(this)
     this.saveSubjectTitle = this.saveSubjectTitle.bind(this)
     this.isComplete = this.isComplete.bind(this)
+    this.handleAddSubjectListEntry = this.handleAddSubjectListEntry.bind(this)
+    this.handleClickSubjectListEntry = this.handleClickSubjectListEntry.bind(this)
   }
 
   isComplete(index) {
@@ -98,6 +102,18 @@ class App extends React.Component {
     }
   }
 
+  handleClickSubjectListEntry(title) {
+    console.log(title)
+    let tempSubjectList = this.state.subjectList.slice()
+    for (let i = 0; i < tempSubjectList.length; i++) {
+      if(tempSubjectList[i].title === title) {
+        this.setState({
+          currentToDoList: tempSubjectList[i]
+        })
+      }
+    }
+  }
+
   toggleTitleFocus() {
     
     let tempSubjectList = this.state.subjectList.slice()
@@ -106,7 +122,17 @@ class App extends React.Component {
       titleToggle: !this.state.currentToDoList.titleToggle,
       
     })
-    tempSubjectList.push(tempCurrentToDoList)
+    
+    
+    for(let i = 0; i < tempSubjectList.length; i++) {
+      if (tempSubjectList[i].index === this.state.currentToDoList.index) {
+        tempSubjectList.splice(i, 1, tempCurrentToDoList)
+      } 
+      // else {
+      //   tempSubjectList.push(tempCurrentToDoList)
+      // }
+    }
+    
     this.setState({
       subjectList: tempSubjectList,
       currentToDoList: tempCurrentToDoList
@@ -154,14 +180,29 @@ class App extends React.Component {
   }
 
   handleAddSubjectTitle(str) {
-    let tempSubjectList = this.state.subjectList.slice()
+    // let tempSubjectList = this.state.subjectList.slice()
     let tempCurrentToDoList = Object.assign({}, this.state.currentToDoList, {
       title: str,
       titleToggle: this.state.currentToDoList.titleToggle
     })
-    tempSubjectList.push(tempCurrentToDoList)
+    // tempSubjectList.push(tempCurrentToDoList)
     this.setState({
       //subjectList: tempSubjectList,
+      currentToDoList: tempCurrentToDoList
+    })
+  }
+
+  handleAddSubjectListEntry() {
+    let tempSubjectList = this.state.subjectList.slice()
+    let tempCurrentToDoList = {
+      title: '',
+      titleToggle: true,
+      index: this.state.subjectList.length,
+      entryList: []
+    }
+    tempSubjectList.push(tempCurrentToDoList)
+    this.setState({
+      subjectList: tempSubjectList,
       currentToDoList: tempCurrentToDoList
     })
   }
@@ -173,8 +214,20 @@ class App extends React.Component {
       titleToggle: !this.state.currentToDoList.titleToggle,
       
     })
+    if (tempSubjectList.length === 0) {
+      tempSubjectList.push(tempCurrentToDoList)
+    }
+    for(let i = 0; i < tempSubjectList.length; i++) {
+      if (tempSubjectList[i].index === this.state.currentToDoList.index) {
+        tempSubjectList.splice(i, 1, tempCurrentToDoList)
+      } 
+      // else {
+        
+      //   tempSubjectList.push(tempCurrentToDoList)
+      // }
+    }
 
-    tempSubjectList.push(tempCurrentToDoList)
+    
     this.setState({
       subjectList: tempSubjectList,
       currentToDoList: tempCurrentToDoList
@@ -209,7 +262,11 @@ class App extends React.Component {
       <div>
         {/* <Option subjectList={this.state.subjectList} />
         <ToDoList hadleAddContent={this.hadleAddContent} currentToDoList={this.state.currentToDoList} handleAddSubjectTitle={this.handleAddSubjectTitle}/> */}
-        <Option subjectList={this.state.subjectList} />
+        <Option 
+          subjectList={this.state.subjectList} 
+          handleAddSubjectListEntry={this.handleAddSubjectListEntry} 
+          handleClickSubjectListEntry={this.handleClickSubjectListEntry}
+        />
         <ToDoList 
           currentToDoList={this.state.currentToDoList} 
           handleAddSubjectTitle={this.handleAddSubjectTitle} 

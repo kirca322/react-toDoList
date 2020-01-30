@@ -15,9 +15,9 @@
 }
 
 .add-subject-list-entry {
-    position: relative;
+    position: fixed;
     margin-left: 15px;
-    top: 760px;
+    top: 890px;
 }
 
 .subject {

@@ -20,7 +20,6 @@ const Subject = (props) => {
     // }
     function handleEnterButton(value) {
         if (window.event.keyCode === 13) {
-            console.log('work')
             //props.handleAddSubjectTitle(value)
             // props.toggleTitleFocus()
             props.saveSubjectTitle()

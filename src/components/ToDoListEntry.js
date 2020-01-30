@@ -3,7 +3,6 @@ import CheckBox from './CheckBox';
 import Content from './Content';
 
 const ToDoListEntry = (props) => {
-    console.log(props.data)
     if (props.data.onFocus === true) {
         return (
             <tr className='entry-tr'>
