@@ -1,0 +1,143 @@
+.option {
+    border: 1px solid;
+    float: left;
+    width: 19.5%;
+    height: 930px;
+    background-color: #505050	
+}
+
+.to-do-list {
+    border: 1px solid;
+    float: left;
+    width: 79.5%;
+    height: 930px;
+    background-color: #282828;
+}
+
+.add-subject-list-entry {
+    position: relative;
+    margin-left: 15px;
+    top: 760px;
+}
+
+.subject {
+    float: left;
+    width: 92%;
+    height: 70px;
+    font-size: 2.0em;
+    color: yellow;
+    padding-top: 15px;
+    padding-left: 20px;
+}
+
+.add-to-do-list-entry {
+    width: 55px;
+    height: 45px;
+    font-size: 2em;
+    margin-top: 17px;
+}
+
+.check-box {
+    float:left;
+    margin: 8px;
+    margin-top: 16px;
+}
+
+thead {
+    width: 500px;
+}
+
+.table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    
+}
+
+.title {
+    width: 1447px;
+    
+}
+
+td {
+    border: 1px solid #848484;
+}
+
+.entry-tr {
+    height: 60px
+}
+
+.content {
+    border: 1px solid #282828;
+    color: white;
+    height: 40px;
+    background-color: #282828;
+    width: 96%;
+}
+
+.content2 {
+    border: 1px solid #282828;
+    color: white;
+    height: 40px;
+    background-color: #282828;
+    width: 96%;
+}
+
+.search-box {
+    height: 70px;
+    text-align: center;
+}
+
+.search-button {
+    height: 30px;
+    width: 30px;
+}
+
+.search-input {
+    height: 24px;
+    margin-top: 25px;
+    width: 250px;
+}
+
+.title-list {
+    color: white;
+    font-size: 1.5em;
+    padding: 5px;
+    padding-top: 5px;
+}
+
+.subject-entry {
+    color: white;
+    font-size: 1.3em;
+    margin-left: 15px;
+}
+
+.input-title, .input-title2 {
+    height: 40px;
+    width: 300px;
+    font-size: 1em;
+    margin-left: 10px;
+}
+
+.input-title2 {
+    background-color: gainsboro;
+}
+
+.input-title {
+    border: 1px solid #282828;
+    background-color: #282828;
+    margin-left: 20px;
+    color: white;
+    font-size: 1.2em;
+}
+
+.add-subject-button {
+    height: 27px;
+    width: 27px;
+}
+
+.add-subject-button-explain {
+    height: 24px;
+    margin-left: 6px;
+    font-size: 1.2em;
+    color: white;
+}
