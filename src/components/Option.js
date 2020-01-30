@@ -8,7 +8,7 @@ const Option = (props) => (
         {/* <Search />
         <SubjectList subjectList={props.subjectList} />
         <AddSubjectListEntry /> */}
-        <Search />
+        <Search handleSearch={props.handleSearch} />
         <SubjectList subjectList={props.subjectList} handleClickSubjectListEntry={props.handleClickSubjectListEntry} />
         <AddSubjectListEntry handleAddSubjectListEntry={props.handleAddSubjectListEntry} />
     </div>

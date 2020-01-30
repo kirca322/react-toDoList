@@ -7,7 +7,12 @@ const ToDoListEntry = (props) => {
         return (
             <tr className='entry-tr'>
                 <td>
-                    <Content toggleEntryFocus={props.toggleEntryFocus} index={props.index} data={props.data} handleAddContent={props.handleAddContent} />
+                    <Content 
+                    data={props.data} 
+                    toggleEntryFocus={props.toggleEntryFocus} 
+                    index={props.index} 
+                    handleAddContent={props.handleAddContent} 
+                    />
                 </td>
             </tr>
         )
@@ -18,7 +23,8 @@ const ToDoListEntry = (props) => {
                     <CheckBox index={props.index} isComplete={props.isComplete} />
                     <Content 
                         toggleEntryFocus={props.toggleEntryFocus} 
-                        index={props.index} data={props.data} 
+                        index={props.index} 
+                        data={props.data} 
                         handleAddContent={props.handleAddContent} 
                     />
                 </td>

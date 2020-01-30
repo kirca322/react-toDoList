@@ -61,6 +61,35 @@ class App extends React.Component {
     this.isComplete = this.isComplete.bind(this)
     this.handleAddSubjectListEntry = this.handleAddSubjectListEntry.bind(this)
     this.handleClickSubjectListEntry = this.handleClickSubjectListEntry.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
+  }
+
+  handleSearch(value) {
+    let tempSubjectList = this.state.subjectList.slice()
+    let allContentArr = []
+    for (let i = 0; i < tempSubjectList.length; i++) {
+      for (let j = 0; j < tempSubjectList[i].entryList.length; j++) {
+        allContentArr.push(tempSubjectList[i].entryList[j].content)
+      }
+    }
+    let tempArr = allContentArr.filter(function(x) {
+      return x.indexOf(value) !== -1
+    })
+
+    let resultArr = []
+    for (let i = 0; i < tempArr.length; i++) {
+      resultArr.push({content: tempArr[i], isCompleted: false, onFocus: false})
+    }
+
+
+    this.setState({
+      currentToDoList: {
+        title: "'" + value + "'" + "에 대한 검색결과",
+        titleToggle: false,
+        index: 100,
+        entryList: resultArr
+      }
+    })
   }
 
   isComplete(index) {
@@ -266,6 +295,7 @@ class App extends React.Component {
           subjectList={this.state.subjectList} 
           handleAddSubjectListEntry={this.handleAddSubjectListEntry} 
           handleClickSubjectListEntry={this.handleClickSubjectListEntry}
+          handleSearch={this.handleSearch}
         />
         <ToDoList 
           currentToDoList={this.state.currentToDoList} 
