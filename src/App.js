@@ -154,6 +154,11 @@ class App extends React.Component {
   }
 
   handleAddToDoListEntryButton() {
+    let inputDuring = document.getElementsByClassName('content2')
+    if (inputDuring[0]) {
+      inputDuring[0].focus()
+      return;
+    }
     let tempSubjectList = this.state.subjectList.slice()
     let tempEntryList = this.state.currentToDoList.entryList.slice()
     tempEntryList.push({content: '', isCompleted: false, onFocus: false})
